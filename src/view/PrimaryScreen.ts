@@ -1,8 +1,7 @@
 import Bussiness from "../model/Bussiness";
 import PrimaryScreenController from "../controller/PrimaryScreenController";
 import RoleController from "../controller/RoleController";
-import Database from "../db/Database";
-
+import Database from "../db/database";
 export default class PrimaryScreen {
 
   private empresa: Bussiness;
