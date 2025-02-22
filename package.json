@@ -1,0 +1,27 @@
+{
+  "name": "projeto_gerenciador_de_funcionarios",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/malware171/projeto_gerenciador_de_funcionarios.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/malware171/projeto_gerenciador_de_funcionarios/issues"
+  },
+  "homepage": "https://github.com/malware171/projeto_gerenciador_de_funcionarios#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/prompt-sync": "^4.2.3"
+  }
+}
