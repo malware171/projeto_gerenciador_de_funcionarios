@@ -1,7 +1,6 @@
 import Bussiness from "../model/Bussiness";
 import PrimaryScreenController from "../controller/PrimaryScreenController";
 import RoleController from "../controller/RoleController";
-import Database from "../db/database";
 export default class PrimaryScreen {
 
   private empresa: Bussiness;
@@ -28,7 +27,7 @@ export default class PrimaryScreen {
 
       switch (option) {
         case 1: {
-          console.log("Escolha um genero: \n");
+          this.empresa.addFuncionario()
           break;
         }
         case 2: {
@@ -48,12 +47,13 @@ export default class PrimaryScreen {
           break;
         }
         case 6: {
-    
+          this.empresa.addNewRole()
           break;
         }
         case 7: {
           console.log("Listando cargos...");
-          this.empresa.listarCargo()
+          console.log(`${this.empresa.listarCargo()}`);
+          
           break;
         }
         case 8: {

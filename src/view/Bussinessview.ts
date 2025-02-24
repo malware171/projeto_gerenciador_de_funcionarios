@@ -9,4 +9,6 @@ export default class BussinessView {
       Cargos Cadastrados:
       `;
     }
+
+    
 }

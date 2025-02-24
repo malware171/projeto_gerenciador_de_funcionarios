@@ -21,7 +21,7 @@ class PrimaryScreen {
             option = PrimaryScreenController_1.default.escolherOpcao(option);
             switch (option) {
                 case 1: {
-                    console.log("Escolha um genero: \n");
+                    this.empresa.addFuncionario();
                     break;
                 }
                 case 2: {
@@ -41,11 +41,12 @@ class PrimaryScreen {
                     break;
                 }
                 case 6: {
+                    this.empresa.addNewRole();
                     break;
                 }
                 case 7: {
                     console.log("Listando cargos...");
-                    this.empresa.listarCargo();
+                    console.log(`${this.empresa.listarCargo()}`);
                     break;
                 }
                 case 8: {

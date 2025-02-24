@@ -2,17 +2,27 @@ import Address from "./Address";
 import People from "./People";
 import Role from "./Role";
 import { Gender } from "./Gender";
+import IIdentity from "./IIdentity";
 
-export default class Employee extends People {
-   private _id: number; 
+export default class Employee extends People implements IIdentity {
+   private static _idCounter = 0
+   public id: number; 
+
    private _salario: number;
    private _cargo: Role;
 
-   constructor(id: number, salario: number, cargo: Role, nome: string, idade: number, cpf: number, genero: Gender, endereco: Address, telefone: number) {
+   constructor(salario: number, cargo: Role, nome: string, idade: number, cpf: number, genero: Gender, endereco: Address, telefone: number) {
       super(nome, idade, cpf, genero, endereco, telefone);
-      this._id = id;
+      this.id = this.gerarId();
       this._salario = salario;
       this._cargo = cargo;
+   }
+
+   public gerarId(): number {
+       return Employee._idCounter++;
+   }
+   public get getId(): number {
+      return this.id;
    }
 
    public set setNomeFuncionario(nomeFuncionario: string) {
@@ -20,13 +30,6 @@ export default class Employee extends People {
    }
    public get getNomeFuncionario(): string {   
       return this._nome;
-   }
-
-   public set setId(id: number) {
-      this._id = id;
-   }
-   public get getId(): number {   
-      return this._id;
    }
 
    public set setSalario(salario: number) {

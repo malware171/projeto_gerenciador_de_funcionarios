@@ -2,23 +2,23 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const People_1 = require("./People");
 class Employee extends People_1.default {
-    constructor(id, salario, cargo, nome, idade, cpf, genero, endereco, telefone) {
+    constructor(salario, cargo, nome, idade, cpf, genero, endereco, telefone) {
         super(nome, idade, cpf, genero, endereco, telefone);
-        this._id = id;
+        this.id = this.gerarId();
         this._salario = salario;
         this._cargo = cargo;
+    }
+    gerarId() {
+        return Employee._idCounter++;
+    }
+    get getId() {
+        return this.id;
     }
     set setNomeFuncionario(nomeFuncionario) {
         this._nome = nomeFuncionario;
     }
     get getNomeFuncionario() {
         return this._nome;
-    }
-    set setId(id) {
-        this._id = id;
-    }
-    get getId() {
-        return this._id;
     }
     set setSalario(salario) {
         this._salario = salario;
@@ -63,4 +63,5 @@ class Employee extends People_1.default {
         return this._telefone;
     }
 }
+Employee._idCounter = 0;
 exports.default = Employee;

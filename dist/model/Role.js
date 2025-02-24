@@ -2,14 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 class Role {
     constructor(nome, salario) {
-        Role.idCounter++;
-        this.id = Role.idCounter;
+        this.id = this.gerarId();
         this.nome = nome;
         this.salario = salario;
-        Role.roles.push(this);
     }
-    static getRoles() {
-        return Role.roles;
+    gerarId() {
+        return Role._idCounter++;
     }
     static cadastrarCargo() { }
     set setId(id) {
@@ -31,6 +29,5 @@ class Role {
         return this.salario;
     }
 }
-Role.idCounter = 0; // Contador estático para IDs
-Role.roles = []; // Array estático para armazenar cargos
+Role._idCounter = 0;
 exports.default = Role;

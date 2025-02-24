@@ -1,6 +1,8 @@
 import Address from "./Address";
 import Employee from "./Employee";
-import Database from "../db/database";
+import DatabaseRole from "../db/DatabaseRole";
+import EmployeeController from "../controller/EmployeeController";
+import RoleController from "../controller/RoleController";
 
 export default class Bussinees {
    private _nome: string;
@@ -16,18 +18,27 @@ export default class Bussinees {
       this._telefone = telefone;
    }
 
-   public addFuncionario(funcionario: Employee): void {
-      
+   public addFuncionario(): void {
+      EmployeeController.cadastroFuncionario()
    }
   
+   
+
    removerFuncionario() {}
+
    listarFuncionario() {}
 
-   atualizarCargo() {}
-   
-   listarCargo() {
-      Database.listaCargos()
+   public addNewRole(): void {
+      RoleController.addNewRole()
    }
+   public listarCargo(): string {
+      return DatabaseRole.listaCargos()
+   }
+   public atualizarCargo() {
+
+   }
+
+   
 
    public get getNome(): string {
       return this._nome;

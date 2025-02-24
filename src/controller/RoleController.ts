@@ -1,14 +1,18 @@
 import PromptSync = require("prompt-sync")
+import Role from "../model/Role";
+import DatabaseRole from "../db/DatabaseRole";
 
 let input = PromptSync()
 
 export default class RoleController {
 
-   static addNewRole(): { nome: string; descricao: string; salario: number } {
+   static addNewRole(): Role {
       let nomeCargo = input("Qual o nome do cargo? ");
-      let descricaoCargo = input(`Qual a descrição do cargo ${nomeCargo} ?`);
       let salarioCargo = +input(`Qual o salario base do cargo ${nomeCargo} ? `);
 
-      return { nome: nomeCargo, descricao: descricaoCargo, salario: salarioCargo };
+      let newRole: Role = new Role(nomeCargo, salarioCargo);
+
+      DatabaseRole.addNovoCargo(newRole)
+      return newRole;
    }
 }

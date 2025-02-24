@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const database_1 = require("../db/database");
+const DatabaseRole_1 = require("../db/DatabaseRole");
+const EmployeeController_1 = require("../controller/EmployeeController");
+const RoleController_1 = require("../controller/RoleController");
 class Bussinees {
     constructor(nome, cnpj, endereco, telefone) {
         this._funcionarios = [];
@@ -9,13 +11,18 @@ class Bussinees {
         this._endereco = endereco;
         this._telefone = telefone;
     }
-    addFuncionario(funcionario) {
+    addFuncionario() {
+        EmployeeController_1.default.cadastroFuncionario();
     }
     removerFuncionario() { }
     listarFuncionario() { }
-    atualizarCargo() { }
+    addNewRole() {
+        RoleController_1.default.addNewRole();
+    }
     listarCargo() {
-        database_1.default.listaCargos();
+        return DatabaseRole_1.default.listaCargos();
+    }
+    atualizarCargo() {
     }
     get getNome() {
         return this._nome;
