@@ -1,6 +1,8 @@
 import Bussiness from "../model/Bussiness";
 import PrimaryScreenController from "../controller/PrimaryScreenController";
 import RoleController from "../controller/RoleController";
+import Employee from "../model/Employee";
+import EmployeeController from "../controller/EmployeeController";
 export default class PrimaryScreen {
 
   private empresa: Bussiness;
@@ -31,7 +33,7 @@ export default class PrimaryScreen {
           break;
         }
         case 2: {
-          console.log("Removendo funcionário...");
+          EmployeeController.removerFuncionario()
           break;
         }
         case 3: {
@@ -39,7 +41,7 @@ export default class PrimaryScreen {
           break;
         }
         case 4: {
-          console.log("Listando funcionários...");
+          console.log(`${this.empresa.listarFuncionarios()}`)
           break;
         }
         case 5: {

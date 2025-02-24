@@ -11,8 +11,8 @@ export default class Employee extends People implements IIdentity {
    private _salario: number;
    private _cargo: Role;
 
-   constructor(salario: number, cargo: Role, nome: string, idade: number, cpf: number, genero: Gender, endereco: Address, telefone: number) {
-      super(nome, idade, cpf, genero, endereco, telefone);
+   constructor(salario: number, cargo: Role, nome: string, cpf: number, genero: Gender, endereco: Address, telefone: number) {
+      super(nome, cpf, genero, endereco, telefone);
       this.id = this.gerarId();
       this._salario = salario;
       this._cargo = cargo;
@@ -44,13 +44,6 @@ export default class Employee extends People implements IIdentity {
    }
    public get getCargo(): Role {   
       return this._cargo;
-   }
-
-   public set setIdade(idade: number) {
-      this._idade = idade;
-   }
-   public get getIdade(): number {   
-      return this._idade;
    }
 
    public set setCpf(cpf: number) {

@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const People_1 = require("./People");
 class Employee extends People_1.default {
-    constructor(salario, cargo, nome, idade, cpf, genero, endereco, telefone) {
-        super(nome, idade, cpf, genero, endereco, telefone);
+    constructor(salario, cargo, nome, cpf, genero, endereco, telefone) {
+        super(nome, cpf, genero, endereco, telefone);
         this.id = this.gerarId();
         this._salario = salario;
         this._cargo = cargo;
@@ -31,12 +31,6 @@ class Employee extends People_1.default {
     }
     get getCargo() {
         return this._cargo;
-    }
-    set setIdade(idade) {
-        this._idade = idade;
-    }
-    get getIdade() {
-        return this._idade;
     }
     set setCpf(cpf) {
         this._cpf = cpf;

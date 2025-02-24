@@ -12,15 +12,13 @@ let prompt = PromptSync();
 export default class EmployeeController {
 
    public static cadastroFuncionario() {
-      let nome = prompt("Qual o nome completo do funcionário ?");
-      let idade = +prompt(`Qual a idade de ${nome} ? `);
+      let nome = prompt("Qual o nome completo do funcionário ? ");
       let cpf = +prompt(`Qual o CPF de ${nome} ? `);
       
-      // Chama a função escolherGenero e espera um valor do tipo Gender
       let genero: Gender | null = escolherGenero(prompt);
       if (!genero) {
          console.log("Gênero inválido. Tente novamente.");
-         return; // Retorna se o gênero não for válido
+         return; 
       }
       
       let salario = +prompt(`Qual o salario de ${nome} ? `);
@@ -29,7 +27,15 @@ export default class EmployeeController {
       let endereco: Address = AddressController.cadastroEndereco();
 
       let cargo = DatabaseRole.filtroCargo(idCargo);
-      let newFuncionario: Employee = new Employee(salario, cargo, nome, idade, cpf, genero, endereco, telefone);
+      let newFuncionario: Employee = new Employee(salario, cargo, nome, cpf, genero, endereco, telefone);
       DatabaseEmployee.addNovoFuncionario(newFuncionario)
    }
+
+   public static removerFuncionario() {
+      `${console.log(DatabaseEmployee.filtroFuncionario())}`
+      let idFuncionario = +prompt("Digite o numero do funcionário que deseja remover: ");
+      DatabaseEmployee.removeFuncionarioDb(idFuncionario);
+   }
+
+   
 }

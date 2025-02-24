@@ -8,7 +8,7 @@ export default class AddressController {
 
    static cadastroEndereco(): Address {
       let rua = prompt("Digite a rua: ");
-      let bairro = prompt("Digite o Bairro")
+      let bairro = prompt("Digite o Bairro: ")
       let cidade = prompt("Digite a Cidade: ");
       let estado = prompt("Digite o Estado: ");
       let numero = +prompt("Digite o numero residencia: ")

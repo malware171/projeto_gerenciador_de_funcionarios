@@ -3,6 +3,7 @@ import Employee from "./Employee";
 import DatabaseRole from "../db/DatabaseRole";
 import EmployeeController from "../controller/EmployeeController";
 import RoleController from "../controller/RoleController";
+import DatabaseEmployee from "../db/DatabaseEmployee";
 
 export default class Bussinees {
    private _nome: string;
@@ -26,7 +27,9 @@ export default class Bussinees {
 
    removerFuncionario() {}
 
-   listarFuncionario() {}
+   listarFuncionarios() {
+      return DatabaseEmployee.filtroFuncionario()
+   }
 
    public addNewRole(): void {
       RoleController.addNewRole()

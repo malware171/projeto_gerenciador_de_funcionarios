@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const PrimaryScreenController_1 = require("../controller/PrimaryScreenController");
+const EmployeeController_1 = require("../controller/EmployeeController");
 class PrimaryScreen {
     constructor(empresa) {
         this.empresa = empresa;
@@ -25,7 +26,7 @@ class PrimaryScreen {
                     break;
                 }
                 case 2: {
-                    console.log("Removendo funcionário...");
+                    EmployeeController_1.default.removerFuncionario();
                     break;
                 }
                 case 3: {
@@ -33,7 +34,7 @@ class PrimaryScreen {
                     break;
                 }
                 case 4: {
-                    console.log("Listando funcionários...");
+                    console.log(`${this.empresa.listarFuncionarios()}`);
                     break;
                 }
                 case 5: {

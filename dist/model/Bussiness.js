@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const DatabaseRole_1 = require("../db/DatabaseRole");
 const EmployeeController_1 = require("../controller/EmployeeController");
 const RoleController_1 = require("../controller/RoleController");
+const DatabaseEmployee_1 = require("../db/DatabaseEmployee");
 class Bussinees {
     constructor(nome, cnpj, endereco, telefone) {
         this._funcionarios = [];
@@ -15,7 +16,9 @@ class Bussinees {
         EmployeeController_1.default.cadastroFuncionario();
     }
     removerFuncionario() { }
-    listarFuncionario() { }
+    listarFuncionarios() {
+        return DatabaseEmployee_1.default.filtroFuncionario();
+    }
     addNewRole() {
         RoleController_1.default.addNewRole();
     }

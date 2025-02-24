@@ -1,9 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class People {
-    constructor(nome, idade, cpf, genero, endereco, telefone) {
+    constructor(nome, cpf, genero, endereco, telefone) {
         this._nome = nome;
-        this._idade = idade;
         this._cpf = cpf;
         this._genero = genero;
         this._endereco = endereco;

@@ -9,22 +9,25 @@ const Employee_1 = require("../model/Employee");
 let prompt = PromptSync();
 class EmployeeController {
     static cadastroFuncionario() {
-        let nome = prompt("Qual o nome completo do funcionário ?");
-        let idade = +prompt(`Qual a idade de ${nome} ? `);
+        let nome = prompt("Qual o nome completo do funcionário ? ");
         let cpf = +prompt(`Qual o CPF de ${nome} ? `);
-        // Chama a função escolherGenero e espera um valor do tipo Gender
         let genero = (0, GenderController_1.escolherGenero)(prompt);
         if (!genero) {
             console.log("Gênero inválido. Tente novamente.");
-            return; // Retorna se o gênero não for válido
+            return;
         }
         let salario = +prompt(`Qual o salario de ${nome} ? `);
         let idCargo = +prompt(`Digite o numero referente ao cargo de ${nome} ? \n ${console.log(DatabaseRole_1.default.listaCargos())}`);
         let telefone = +prompt("Digite o numero de telefone: ");
         let endereco = AddressController_1.default.cadastroEndereco();
         let cargo = DatabaseRole_1.default.filtroCargo(idCargo);
-        let newFuncionario = new Employee_1.default(salario, cargo, nome, idade, cpf, genero, endereco, telefone);
+        let newFuncionario = new Employee_1.default(salario, cargo, nome, cpf, genero, endereco, telefone);
         DatabaseEmployee_1.default.addNovoFuncionario(newFuncionario);
+    }
+    static removerFuncionario() {
+        `${console.log(DatabaseEmployee_1.default.filtroFuncionario())}`;
+        let idFuncionario = +prompt("Digite o numero do funcionário que deseja remover: ");
+        DatabaseEmployee_1.default.removeFuncionarioDb(idFuncionario);
     }
 }
 exports.default = EmployeeController;
